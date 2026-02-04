@@ -3,8 +3,8 @@ main = "worker.js"
 compatibility_date = "2024-01-01"
 
 kv_namespaces = [
-  { binding = "KEYS_DB", id = "your-kv-namespace-id" }
+  { binding = "KEYS_DB", id = "4fe1fec458bd44049df4bb220aa13f36" }
 ]
 
 [vars]
-ROOT_URL = "https://your-domain.com"
+ROOT_URL = "https://bengscript.lol"
