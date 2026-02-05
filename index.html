@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <script>
+        const API_BASE = window.location.origin;
+        async function getKey() {
+            const hwid = document.getElementById('hwid').value;
+            const response = await fetch(`${API_BASE}/api/getlink`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ hwid })
+            });
+            const data = await response.json();
+        }
+    </script>
+</head>
+<body>
+    <h1>Test Web</h1>
+</body>
+</html>
