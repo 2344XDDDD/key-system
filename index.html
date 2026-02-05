@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Test</title>
-    <script>
-        const API_BASE = window.location.origin;
-        async function getKey() {
-            const hwid = document.getElementById('hwid').value;
-            const response = await fetch(`${API_BASE}/api/getlink`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ hwid })
-            });
-            const data = await response.json();
-        }
-    </script>
+    <title>Worker + GitHub</title>
 </head>
 <body>
-    <h1>Test Web</h1>
+    <div id="app"></div>
+    
+    <script>
+        async function processData() {
+            const response = await fetch('/api/process-data', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    input: 'hello from github pages',
+                    numbers: [1, 2, 3, 4, 5]
+                })
+            });
+            const data = await response.json();
+            document.getElementById('app').innerHTML = 
+                `Processed: ${data.processedData}<br>
+                 Sum: ${data.calculations.sum}<br>
+                 Average: ${data.calculations.average}`;
+        }
+        window.addEventListener('DOMContentLoaded', processData);
+    </script>
 </body>
 </html>
